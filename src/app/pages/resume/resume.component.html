@@ -1,0 +1,167 @@
+<section
+  class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300 px-6 max-w-6xl mx-auto"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+  data-aos-easing="ease-in-out"
+>
+
+  <!-- Resume Header -->
+  <h1 class="text-4xl font-bold text-blue-600 mb-6">Mohamad Norfadzly Afzan Bin Kamarudin</h1>
+
+  <!-- Contact Info -->
+  <p>
+    Pulai Chondong, Kelantan, Malaysia |
+    <a href="tel:01111261643" class="hover:underline">011-1126&nbsp;1643</a> |
+    <a href="mailto:fadzly0222@gmail.com" class="hover:underline">
+      fadzly0222&#64;gmail&#46;com
+    </a>
+  </p>
+  <p>
+    <a href="https://www.linkedin.com/in/mohamadnorfadzly" target="_blank" class="text-blue-500 hover:underline">
+      linkedin.com/in/mohamadnorfadzly
+    </a>
+  </p>
+
+  <!-- Download Resume Button -->
+  <div class="my-6">
+    <button (click)="openConfirmModal()"
+            class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+      📄 Download Resume (PDF)
+    </button>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div *ngIf="showConfirmModal"
+       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-900 rounded-lg p-6 max-w-sm mx-4 text-center shadow-lg">
+      <p class="mb-6 text-gray-800 dark:text-gray-200 text-lg">
+        Are you sure you want to download the resume PDF?
+      </p>
+      <button (click)="confirmDownload()"
+              class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mr-4">
+        Yes, Download
+      </button>
+      <button (click)="cancelDownload()"
+              class="px-5 py-2 bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <!-- Resume Sections -->
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">🎓 Education</h2>
+    <p class="font-semibold">Universiti Sains Islam Malaysia (USIM)</p>
+    <p>Bachelor of Computer Science with Honours (Information Security Assurance)</p>
+    <p>Final Year Project: <i>SecVision - VR for Cybersecurity Awareness</i></p>
+    <p>CGPA: 3.35 | MUET: Band 3 | Aug 2021 – Present</p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">💻 Internship Experience</h2>
+    <p class="font-semibold">TM Research and Development – Software Engineering (Feb 2025 – Present)</p>
+    <ul class="list-disc pl-5">
+      <li>Debugged backend and frontend issues across Orca platform using Docker and Proxmox VMs</li>
+      <li>Handled system integration, DNS mapping, containerization, and SQLite to MariaDB migration</li>
+      <li>Worked on UI/UX redesign and improved deployment flow using Linux servers</li>
+    </ul>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">🧰 Freelance Experience</h2>
+    <p class="font-semibold">Freelance 3D Modeler & Animator (Oct 2023 – Jan 2025)</p>
+    <ul class="list-disc pl-5">
+      <li>Created 3D models, animations and rendered assets for promotional and client-based use</li>
+    </ul>
+    <p class="font-semibold mt-2">Freelance Website Builder</p>
+    <ul class="list-disc pl-5">
+      <li>Built client websites using HTML, CSS, JavaScript; focus on clean UX/UI</li>
+      <li>Collaborated to bring client visions to life using modern frameworks</li>
+    </ul>
+    <div class="mt-4">
+      <a href="https://www.freelancer.com/u/mohamadnorfadzly" target="_blank" rel="noopener noreferrer"
+         class="inline-block px-6 py-2 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition">
+        Visit My Freelance Profile
+      </a>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">📌 Mini Projects</h2>
+    <ul class="list-disc pl-5 space-y-1">
+      <li><strong>Halal Food Scanner</strong> — JSP, Google Maps API, SQL Workbench, Halal categorization</li>
+      <li><strong>Studitify</strong> — PHP, XAMPP, full-stack music platform for students</li>
+      <li><strong>SecVision</strong> — VR training platform for cybersecurity education using Unity</li>
+    </ul>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">🛠️ Skills</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <h4 class="font-semibold">Website Dev</h4>
+        <p>PHP, JSP, HTML, CSS, JavaScript, TypeScript</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Mobile Dev</h4>
+        <p>Java (Android Studio)</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Game Dev</h4>
+        <p>C# (Unity)</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Tools</h4>
+        <p>Angular, Django, Docker, MariaDB, DRF, DBeaver, XAMPP, Linux, Proxmox</p>
+      </div>
+    </div>
+  </section>
+
+      <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">📜 Certifications</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li *ngFor="let cert of certificates">
+        <button
+          (click)="openCertModal(cert)"
+          class="text-blue-500 hover:underline focus:outline-none"
+          type="button"
+        >
+          {{ cert.title }}
+        </button>
+      </li>
+    </ul>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">💪 Soft Skills</h2>
+    <p>Critical Thinking, Teamwork, Work Ethic, Problem Solving</p>
+  </section>
+
+  <section class="mt-10">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-2">🌍 Languages</h2>
+    <p>Malay (Advanced), English (Advanced), Arabic (Basic), French (Basic)</p>
+  </section>
+<div
+    *ngIf="showCertModal"
+    class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+  >
+    <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg max-w-4xl max-h-[80vh] w-full mx-4 p-4 overflow-auto relative">
+      <button
+        (click)="closeCertModal()"
+        class="absolute top-3 right-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-2xl font-bold focus:outline-none"
+        aria-label="Close certificate"
+      >
+        &times;
+      </button>
+      <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{{ selectedCert?.title }}</h3>
+      
+      <iframe
+        *ngIf="selectedCert"
+        [src]="selectedCert.file | safeUrl"
+        class="w-full h-[70vh] border"
+        frameborder="0"
+      ></iframe>
+    </div>
+  </div>
+</section>

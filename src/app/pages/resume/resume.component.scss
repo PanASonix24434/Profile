@@ -1,0 +1,14 @@
+/* src/app/pages/resume/resume.component.scss */
+section {
+  scroll-margin-top: 4rem;
+
+  h2 {
+    margin-top: 2rem;
+  }
+}
+/* Optional styling */
+:host ::ng-deep {
+  .focus\:outline-none:focus {
+    outline: none !important;
+  }
+}
