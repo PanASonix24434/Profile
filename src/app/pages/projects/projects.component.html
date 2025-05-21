@@ -8,40 +8,44 @@
     <h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">💻 My Projects</h1>
 
     <ng-container *ngFor="let category of categories">
-      <h2 class="text-2xl font-semibold mb-6 mt-10 text-blue-600 items-center text-center">{{ category }}</h2>
+      <h2 class="text-2xl font-semibold mb-6 mt-10 text-blue-600 text-center">{{ category }}</h2>
 
       <ng-container *ngIf="category === 'Final Year Project'; else normalGrid">
-  <div *ngFor="let project of projectsByCategory(category)" class="flex flex-col items-center text-center max-w-4xl mx-auto px-4">
-    <h3 class="text-3xl font-bold text-blue-600 mb-6">{{ project.title }}</h3>
-    <p class="text-gray-700 dark:text-gray-300 mb-10 text-lg">
-      {{ project.description }}
-    </p>
+        <!-- Final Year Project - Image Carousel -->
+        <div *ngFor="let project of projectsByCategory(category)" class="flex flex-col items-center text-center max-w-4xl mx-auto px-4">
+          <h3 class="text-3xl font-bold text-blue-600 mb-6">{{ project.title }}</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-10 text-lg">
+            {{ project.description }}
+          </p>
 
-    <div class="relative w-72 h-48 sm:w-80 sm:h-52 md:w-96 md:h-60 lg:w-[500px] lg:h-[312px] overflow-hidden rounded-lg">
-      <img
-        *ngFor="let img of project.images; let i = index"
-        [src]="img"
-        [alt]="'Project Image ' + (i + 1)"
-        [class.opacity-100]="currentIndex === i"
-        [class.opacity-0]="currentIndex !== i"
-        class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000"
-      />
-    </div>
+          <!-- Image Carousel -->
+          <div class="relative w-72 h-48 sm:w-80 sm:h-52 md:w-96 md:h-60 lg:w-[500px] lg:h-[312px] overflow-hidden rounded-lg">
+            <img
+              *ngFor="let img of project.images; let i = index"
+              [src]="img"
+              [alt]="'Project Image ' + (i + 1)"
+              [class.opacity-100]="currentIndex === i"
+              [class.opacity-0]="currentIndex !== i"
+              class="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000"
+            />
+          </div>
 
-    <div class="flex justify-center mt-6 space-x-3">
-      <button
-        *ngFor="let img of project.images; let i = index"
-        (click)="selectImage(i)"
-        [class.bg-blue-600]="currentIndex === i"
-        [class.bg-gray-300]="currentIndex !== i"
-        class="w-4 h-4 rounded-full focus:outline-none"
-        [attr.aria-label]="'Select image ' + (i + 1)"
-      ></button>
-    </div>
-  </div>
-</ng-container>
+          <!-- Image Navigation -->
+          <div class="flex justify-center mt-6 space-x-3">
+            <button
+              *ngFor="let img of project.images; let i = index"
+              (click)="selectImage(i)"
+              [class.bg-blue-600]="currentIndex === i"
+              [class.bg-gray-300]="currentIndex !== i"
+              class="w-4 h-4 rounded-full focus:outline-none"
+              [attr.aria-label]="'Select image ' + (i + 1)"
+            ></button>
+          </div>
+        </div>
+      </ng-container>
 
       <ng-template #normalGrid>
+        <!-- Normal Grid of Projects -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div *ngFor="let project of projectsByCategory(category)" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition">
             <h3 class="text-xl font-bold text-blue-600 mb-2">{{ project.title }}</h3>
