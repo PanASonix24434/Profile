@@ -55,7 +55,7 @@ export class ResumeComponent {
 
   downloadResume() {
     const link = document.createElement('a');
-    link.href = 'assets/files/resume-mohamad-norfadzly.pdf'; // Make sure this file exists
+    link.href = 'assets/files/resume-mohamad-norfadzly2.pdf'; // Make sure this file exists
     link.download = 'resume-mohamad-norfadzly.pdf';
     document.body.appendChild(link);
     link.click();
